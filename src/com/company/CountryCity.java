@@ -16,8 +16,14 @@ public class CountryCity extends Point
     //breddergrader (vandrette streger)
     private Point latitude;
 
-    public CountryCity(String city, String counrty, int latitude1, int latitude2, boolean isNorth, int longitude1,
-                       int longitude2, boolean isEast)
+    public CountryCity(String city,
+                       String counrty,
+                       int latitude1,
+                       int latitude2,
+                       boolean isNorth,
+                       int longitude1,
+                       int longitude2,
+                       boolean isEast)
     {
         this.city = city;
         this.country = counrty;
