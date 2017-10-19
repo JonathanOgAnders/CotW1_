@@ -2,7 +2,9 @@ package com.company;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CsvReader
 {
@@ -10,10 +12,13 @@ public class CsvReader
     String line = "";
     String splitBy = ";";
     List<CountryCity> countries;
+    Set<String> uniqueContries;
 
     public void readFile()
     {
         countries = new ArrayList<>();
+        uniqueContries = new HashSet<>();
+
         try
         {
             br = new BufferedReader(new FileReader("CitiesOfTheWorld.csv"));
@@ -42,6 +47,7 @@ public class CsvReader
                 int b1 = Integer.parseInt(country[5]);
                 int b2 = Integer.parseInt(country[6]);
 
+                uniqueContries.add(s2);
                 countries.add(new CountryCity(s, s2, a1, a2, f, b1, b2, f2));
             }
         }
@@ -72,5 +78,10 @@ public class CsvReader
     public List<CountryCity> getList()
     {
         return countries;
+    }
+
+    public Set<String> getSet()
+    {
+        return uniqueContries;
     }
 }

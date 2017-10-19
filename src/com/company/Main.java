@@ -6,6 +6,5 @@ public class Main
     {
         CsvReader csv = new CsvReader();
         csv.readFile();
-        System.out.println(csv.getList());
     }
 }
