@@ -8,11 +8,11 @@ import java.util.Set;
 
 public class CsvReader
 {
-    BufferedReader br = null;
-    String line = "";
-    String splitBy = ";";
-    List<CountryCity> countries;
-    Set<CountryCity> uniqueContries;
+    private BufferedReader br = null;
+    private String line = "";
+    private String splitBy = ";";
+    private List<CountryCity> countries;
+    private Set<CountryCity> uniqueContries;
 
     public void readFile()
     {
@@ -46,7 +46,7 @@ public class CsvReader
                 int b2 = Integer.parseInt(country[6]);
 
                 uniqueContries.add(new CountryCity(s, s2, a1, a2, f, b1, b2, f2));
-                countries.add(new CountryCity(s, s2, a1, a2, f, b1, b2, f2));
+                countries.add( new CountryCity(s, s2, a1, a2, f, b1, b2, f2));
 
 //                removeSpacings();
             }

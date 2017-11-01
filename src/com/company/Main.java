@@ -9,12 +9,8 @@ public class Main
 
         BinarySearchTree bst = new BinarySearchTree();
 
-        csv.getUniqueContries().forEach(bst::insert);
+        csv.getCountries().forEach(bst::add);
 
-        System.out.println(csv.getUniqueContries());
-
-
-//        System.out.println(csv.getUniqueContries());
         bst.printInorder(bst.getRoot());
     }
 }
