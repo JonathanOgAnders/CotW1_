@@ -12,7 +12,7 @@ public class CsvReader
     String line = "";
     String splitBy = ";";
     List<CountryCity> countries;
-    Set<String> uniqueContries;
+    Set<CountryCity> uniqueContries;
 
     public void readFile()
     {
@@ -25,9 +25,7 @@ public class CsvReader
 
             while((line = br.readLine()) != null)
             {
-                String line2 = line.replaceAll(" ", "");
-
-                String[] country = line2.split(splitBy);
+                String[] country = line.split(splitBy);
                 String s = country[0];
                 String s2 = country[1];
                 int a1 = Integer.parseInt(country[2]);
@@ -47,8 +45,10 @@ public class CsvReader
                 int b1 = Integer.parseInt(country[5]);
                 int b2 = Integer.parseInt(country[6]);
 
-                uniqueContries.add(s2);
+                uniqueContries.add(new CountryCity(s, s2, a1, a2, f, b1, b2, f2));
                 countries.add(new CountryCity(s, s2, a1, a2, f, b1, b2, f2));
+
+//                removeSpacings();
             }
         }
         catch (FileNotFoundException e)
@@ -75,12 +75,18 @@ public class CsvReader
         }
     }
 
-    public List<CountryCity> getList()
+    public void removeSpacings()
+    {
+        uniqueContries.forEach(countryCity -> countryCity.setCountry(countryCity.getCountry().trim()));
+        countries.forEach(countryCity -> countryCity.setCountry(countryCity.getCountry().trim()));
+    }
+
+    public List<CountryCity> getCountries()
     {
         return countries;
     }
 
-    public Set<String> getSet()
+    public Set<CountryCity> getUniqueContries()
     {
         return uniqueContries;
     }
