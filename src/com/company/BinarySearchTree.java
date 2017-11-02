@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Comparator;
-
 /**
  * Created by Anders on 31-Oct-17.
  */

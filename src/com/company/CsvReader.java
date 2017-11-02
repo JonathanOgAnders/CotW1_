@@ -44,8 +44,6 @@ public class CsvReader
                 int b2 = Integer.parseInt(country[6]);
 
                 countries.add( new CountryCity(s, s2, a1, a2, f, b1, b2, f2));
-
-                removeSpacings();
             }
         }
         catch (FileNotFoundException e)
@@ -70,11 +68,6 @@ public class CsvReader
                 }
             }
         }
-    }
-
-    public void removeSpacings()
-    {
-        countries.forEach(countryCity -> countryCity.setCountry(countryCity.getCountry().trim()));
     }
 
     public List<CountryCity> getCountries()
