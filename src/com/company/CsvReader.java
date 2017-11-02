@@ -12,12 +12,10 @@ public class CsvReader
     private String line = "";
     private String splitBy = ";";
     private List<CountryCity> countries;
-    private Set<CountryCity> uniqueContries;
 
     public void readFile()
     {
         countries = new ArrayList<>();
-        uniqueContries = new HashSet<>();
 
         try
         {
@@ -45,10 +43,9 @@ public class CsvReader
                 int b1 = Integer.parseInt(country[5]);
                 int b2 = Integer.parseInt(country[6]);
 
-                uniqueContries.add(new CountryCity(s, s2, a1, a2, f, b1, b2, f2));
                 countries.add( new CountryCity(s, s2, a1, a2, f, b1, b2, f2));
 
-//                removeSpacings();
+                removeSpacings();
             }
         }
         catch (FileNotFoundException e)
@@ -77,17 +74,11 @@ public class CsvReader
 
     public void removeSpacings()
     {
-        uniqueContries.forEach(countryCity -> countryCity.setCountry(countryCity.getCountry().trim()));
         countries.forEach(countryCity -> countryCity.setCountry(countryCity.getCountry().trim()));
     }
 
     public List<CountryCity> getCountries()
     {
         return countries;
-    }
-
-    public Set<CountryCity> getUniqueContries()
-    {
-        return uniqueContries;
     }
 }

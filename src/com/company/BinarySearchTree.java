@@ -14,40 +14,6 @@ public class BinarySearchTree
         this.root = null;
     }
 
-    public void insert(CountryCity countryCity)
-    {
-
-        Node newNode = new Node(countryCity);
-
-        if(root==null)
-        {
-            root = newNode;
-            return;
-        }
-
-        Node current = root;
-        Node parent;
-
-        Comparator<CountryCity> comp = Comparator.comparing(CountryCity::getCountry);
-
-        while(true){
-            parent = current;
-            if(comp.compare(countryCity, current.getData()) == -1) {
-                current = current.left;
-                if(current==null){
-                    parent.left = newNode;
-                    return;
-                }
-            }else{
-                current = current.right;
-                if(current==null){
-                    parent.right = newNode;
-                    return;
-                }
-            }
-        }
-    }
-
     public void printInorder(Node root)
     {
         if (root != null)

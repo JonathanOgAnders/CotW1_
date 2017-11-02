@@ -30,7 +30,7 @@ public class Node
 
     public boolean add(CountryCity countryCity)
     {
-        Comparator<CountryCity> comp = (CountryCity c1, CountryCity c2) -> c1.getCountry().compareTo(c2.getCountry());
+        Comparator<CountryCity> comp = Comparator.comparing(CountryCity::getCountry);
 
         if(countryCity == this.data)
         {

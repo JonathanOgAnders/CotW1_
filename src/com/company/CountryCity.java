@@ -36,7 +36,7 @@ public class  CountryCity extends Point
 
     public String toString()
     {
-        return country;
+        return country + ", " + city;
     }
 
     public String getCity()
@@ -88,12 +88,15 @@ public class  CountryCity extends Point
 
         CountryCity c = (CountryCity) o;
 
+        if(country.equals(c.country))
+            return city.equals(c.city);
+
         return country.equals(c.country);
     }
 
     @Override
     public int hashCode()
     {
-        return Objects.hash(country);
+        return Objects.hash(country, city);
     }
 }
