@@ -1,8 +1,9 @@
 package com.company;
 
 import java.awt.*;
+import java.util.Objects;
 
-public class CountryCity extends Point
+public class  CountryCity extends Point
 {
     private String city;
     private String country;
@@ -17,7 +18,7 @@ public class CountryCity extends Point
     private Point latitude;
 
     public CountryCity(String city,
-                       String counrty,
+                       String country,
                        int latitude1,
                        int latitude2,
                        boolean isNorth,
@@ -26,7 +27,7 @@ public class CountryCity extends Point
                        boolean isEast)
     {
         this.city = city;
-        this.country = counrty;
+        this.country = country;
         this.latitude = new Point(latitude1, latitude2);
         this.isNorth = isNorth;
         this.longitude = new Point(longitude1, longitude2);
@@ -66,5 +67,36 @@ public class CountryCity extends Point
     public Point getLatitude()
     {
         return latitude;
+    }
+
+    public void setCountry(String country)
+    {
+        this.country = country;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if(o == this)
+        {
+            return true;
+        }
+        if(!(o instanceof CountryCity))
+        {
+            return false;
+        }
+
+        CountryCity c = (CountryCity) o;
+
+//        if(country.equals(c.country))
+//            return city.equals(c.city);
+
+        return country.equals(c.country) && city.equals(c.city);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(country, city);
     }
 }
