@@ -88,9 +88,6 @@ public class  CountryCity extends Point
 
         CountryCity c = (CountryCity) o;
 
-//        if(country.equals(c.country))
-//            return city.equals(c.city);
-
         return country.equals(c.country) && city.equals(c.city);
     }
 

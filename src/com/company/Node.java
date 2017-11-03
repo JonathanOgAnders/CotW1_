@@ -10,12 +10,14 @@ public class Node
     private CountryCity data;
     Node left;
     Node right;
+    private int depth;
 
-    public Node(CountryCity data)
+    public Node(CountryCity data, int depth)
     {
         this.data = data;
         this.left = null;
         this.right = null;
+        this.depth = depth;
     }
 
     public CountryCity getData()
@@ -46,7 +48,7 @@ public class Node
         {
             if(left == null)
             {
-                left = new Node(countryCity);
+                left = new Node(countryCity, this.getDepth()+1);
                 return true;
             }
             else
@@ -58,7 +60,7 @@ public class Node
         {
             if(right == null)
             {
-                right = new Node(countryCity);
+                right = new Node(countryCity, this.getDepth()+1);
                 return true;
             }
             else
@@ -69,13 +71,8 @@ public class Node
         return false;
     }
 
-    public void printInorder(Node root)
+    public int getDepth()
     {
-        if (root != null)
-        {
-            printInorder(root.left);
-            System.out.println(" " + root.getData());
-            printInorder(root.right);
-        }
+        return depth;
     }
 }
